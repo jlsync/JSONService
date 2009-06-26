@@ -158,9 +158,7 @@ module LVS
           if key =~ /^has_/
             temp_key = "#{key.gsub(/^has_/, '')}?"
             new_instance_methods << "
-              def #{temp_key}
-                @#{key}
-              end
+              alias #{temp_key} #{key}
              "
            end
 
